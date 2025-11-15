@@ -1,0 +1,49 @@
+syntax="proto3";
+package ro.mpp2025.protobuffprotocol;
+
+option java_package="protobuff";
+option java_outer_classname="FestivalProtobufs";
+option java_multiple_files = false;
+
+message Spectacol{
+  int32 id=1;
+  string artist=2;
+  string data=3;
+  string locatie=4;
+  int32 nrLocuriDisponibile=5;
+  int32 nrLocuriVandute=6;
+}
+message Bilet{
+  Spectacol spectacol=1;
+  string cumparatorName=2;
+  int32 seats=3;
+}
+message Angajat{
+  string username=1;
+  string password=2;
+}
+
+message Request{
+  enum Type {Unkown=0; Login = 1; GetSpectacole = 2; FilterSpectacole=3; ReserveBilet=4;}
+  // Identifies which request is filled in.
+  Type type = 1;
+
+  // One of the following will be filled in, depending on the type.
+  oneof payload{
+    Angajat angajat=2;
+    string day=3;
+    Bilet bilet=4;
+  }
+}
+
+message Response{
+  enum Type { Unknown=0; Ok = 1; Error = 2; GetSpectacole=3; FilterSpectacole=4; ReserveBilet=5; Spectacole=6; updateSpectacol=7;}
+  // Identifies which request is filled in.
+  Type type = 1;
+  // One of the following will be filled in, depending on the type.
+  string error = 2;
+  repeated Spectacol spectacole=3;
+  repeated Spectacol filtered=4;
+  Angajat angajat=5;
+  Spectacol spectacol=6;
+}

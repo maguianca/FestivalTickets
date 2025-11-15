@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-242.23339.11">
+    <data-source name="Festival2025" uuid="15126078-0ec1-4d75-a63e-e02fbc796f2f">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" />
+      <schema-mapping />
+    </data-source>
+    <data-source name="Festival2025 [2]" uuid="9b8800cc-d6a9-4d7f-b976-df7efb006c50">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" />
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

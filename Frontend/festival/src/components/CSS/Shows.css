@@ -1,0 +1,138 @@
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: #ffeee4;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#root, .app-wrapper {
+    min-height: 300vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffeee4;
+}
+
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    background-color: #ffeee4;
+}
+
+h1 {
+    text-align: center;
+    color: #6D3C52;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.formCustomization {
+    background: none;
+    padding: 0;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.formCustomization label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #6D3C52;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+.formCustomization input {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #00c6ff;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.formCustomization input:focus {
+    border-color: #f915ef;
+    outline: none;
+}
+
+
+.submit-button,
+.cancel-button,
+table button {
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    padding: 6px 15px;
+    min-width: 100px;
+    max-width: 150px;
+    background: linear-gradient(to right, #08aaaa, #f915ef);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-button:hover,
+.cancel-button:hover,
+table button:hover {
+    filter: brightness(0.9);
+}
+
+.cancel-button {
+    background: linear-gradient(to right, #a03f41, #ff7d7d);
+}
+
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 0.85em;
+    min-width: 350px;
+    text-align: center;
+}
+
+thead tr {
+    background-color: #e7688d;
+    color: white;
+    height: 36px;
+}
+
+thead th {
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+tbody td {
+    padding: 8px;
+    color: #333;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #e8c6d6;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: #fbe7ef;
+}
+
+tbody tr:hover {
+    background-color: #f0d2dc;
+}
+
+table button {
+    margin: 0 2px;
+}

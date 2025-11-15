@@ -1,0 +1,66 @@
+syntax = "proto3";
+package ro.mpp2025.grpc;
+
+option java_package = "ro.mpp2025.grpc";
+option java_outer_classname = "Festivalgrpc";
+option java_multiple_files = false;
+
+message Spectacol {
+  int32 id = 1;
+  string artist = 2;
+  string data = 3;
+  string locatie = 4;
+  int32 nrLocuriDisponibile = 5;
+  int32 nrLocuriVandute = 6;
+}
+
+message Bilet {
+  Spectacol spectacol = 1;
+  string cumparatorName = 2;
+  int32 seats = 3;
+}
+
+message Angajat {
+  string username = 1;
+  string password = 2;
+}
+
+message LoginRequest {
+  Angajat angajat = 1;
+}
+
+message LoginResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message GetSpectacoleRequest {}
+
+message GetSpectacoleResponse {
+  repeated Spectacol spectacole = 1;
+}
+
+message FilterSpectacoleRequest {
+  string day = 1;
+}
+
+message FilterSpectacoleResponse {
+  repeated Spectacol spectacole = 1;
+}
+
+message ReserveBiletRequest {
+  Bilet bilet = 1;
+}
+
+message ReserveBiletResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+service FestivalService {
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc GetSpectacole(GetSpectacoleRequest) returns (GetSpectacoleResponse);
+  rpc FilterSpectacole(FilterSpectacoleRequest) returns (FilterSpectacoleResponse);
+  rpc ReserveBilet(ReserveBiletRequest) returns (ReserveBiletResponse);
+  rpc SubscribeUpdates(Angajat) returns (stream Spectacol);
+}

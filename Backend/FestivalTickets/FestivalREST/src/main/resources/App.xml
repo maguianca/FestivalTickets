@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <util:properties id="jdbcProps" location="classpath:bd.config"/>
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="objectMapper"/>
+        <property name="targetMethod" value="registerModule"/>
+        <property name="arguments">
+            <list>
+                <bean class="com.fasterxml.jackson.datatype.jsr310.JavaTimeModule"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="spectacolDbRepo" class="ro.mpp2025.Repository.SpectacolDbRepo">
+        <constructor-arg ref="jdbcProps"/>
+    </bean>
+    <bean id="biletDbRepo" class="ro.mpp2025.Repository.BiletDbRepo">
+        <constructor-arg ref="jdbcProps"/>
+    </bean>
+    <bean id="angajatDbRepo" class="ro.mpp2025.Repository.AngajatDbRepo">
+        <constructor-arg ref="jdbcProps"/>
+    </bean>
+
+</beans>
